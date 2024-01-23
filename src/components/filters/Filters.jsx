@@ -1,14 +1,4 @@
-import { useState } from 'react';
-
-const Filters = () => {
-	const [filters, setFilters] = useState({
-		PS5: false,
-		PS4: false,
-		PC: false,
-		XBOX: false
-	});
-	console.log(filters);
-
+const Filters = ({ action }) => {
 	return (
 		<>
 			<div>
@@ -17,37 +7,38 @@ const Filters = () => {
 					id='PS5'
 					name='PS5'
 					type='checkbox'
-					onChange={event => filterdList(filters, setFilters, event.target)}
+					onChange={event => action(event.target)}
 				/>
 			</div>
 			<div>
 				<label htmlFor=''>PS4</label>
 				<input
+					id='PS4'
+					name='PS4'
 					type='checkbox'
-					onChange={event => filterdList(filters, setFilters, event.target)}
+					onChange={event => action(event.target)}
 				/>
 			</div>
 			<div>
 				<label htmlFor=''>PC</label>
 				<input
+					id='PC'
+					name='PC'
 					type='checkbox'
-					onChange={event => filterdList(filters, setFilters, event.target)}
+					onChange={event => action(event.target)}
 				/>
 			</div>
 			<div>
 				<label htmlFor=''>XBOX</label>
 				<input
+					id='XBOX'
+					name='Xbox'
 					type='checkbox'
-					onChange={event => filterdList(filters, setFilters, event.target)}
+					onChange={event => action(event.target)}
 				/>
 			</div>
 		</>
 	);
 };
 
-const filterdList = (filters, setFilters, input) => {
-	const { name } = input;
-	console.log(name);
-	setCheckFilter({ ...filters, filters });
-};
 export default Filters;
